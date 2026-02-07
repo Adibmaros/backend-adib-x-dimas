@@ -198,7 +198,7 @@ export async function PUT(request: NextRequest, { params }: any) {
  *       404:
  *         description: Post not found
  */
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: any) {
   try {
     const { id } = PostParamsSchema.parse(params);
 
