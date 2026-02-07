@@ -28,7 +28,7 @@ import { prisma } from "@/lib/prisma";
  *       404:
  *         description: Post not found
  */
-export async function GET(request: NextRequest, { params }: { params: { slug: string } }) {
+export async function GET(request: NextRequest, { params }: any) {
   try {
     const { slug } = params;
 

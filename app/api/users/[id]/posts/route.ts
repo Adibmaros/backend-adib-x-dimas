@@ -65,7 +65,7 @@ const UserIdSchema = z.object({
  *       404:
  *         description: User not found
  */
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: any) {
   try {
     const { id } = UserIdSchema.parse(params);
     const { searchParams } = new URL(request.url);

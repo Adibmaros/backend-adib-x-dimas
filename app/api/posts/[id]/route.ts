@@ -29,7 +29,7 @@ import { z } from "zod";
  *       404:
  *         description: Post not found
  */
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: any) {
   try {
     const { id } = PostParamsSchema.parse(params);
 
@@ -104,7 +104,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
  *       409:
  *         description: Slug already exists
  */
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: any) {
   try {
     const { id } = PostParamsSchema.parse(params);
     const body = await request.json();

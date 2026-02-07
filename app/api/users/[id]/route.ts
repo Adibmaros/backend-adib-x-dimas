@@ -29,7 +29,7 @@ import { z } from "zod";
  *       404:
  *         description: User not found
  */
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: any) {
   try {
     const { id } = UserParamsSchema.parse(params);
 
@@ -107,7 +107,7 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
  *       409:
  *         description: Email or username already exists
  */
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: any) {
   try {
     const { id } = UserParamsSchema.parse(params);
     const body = await request.json();
@@ -195,7 +195,7 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
  *       404:
  *         description: User not found
  */
-export async function DELETE(request: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(request: NextRequest, { params }: any) {
   try {
     const { id } = UserParamsSchema.parse(params);
 
