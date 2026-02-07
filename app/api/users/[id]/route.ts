@@ -31,7 +31,8 @@ import { z } from "zod";
  */
 export async function GET(request: NextRequest, { params }: any) {
   try {
-    const { id } = UserParamsSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = UserParamsSchema.parse(resolvedParams);
 
     const user = await prisma.user.findUnique({
       where: { id },
@@ -109,7 +110,8 @@ export async function GET(request: NextRequest, { params }: any) {
  */
 export async function PUT(request: NextRequest, { params }: any) {
   try {
-    const { id } = UserParamsSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = UserParamsSchema.parse(resolvedParams);
     const body = await request.json();
     const validatedData = UpdateUserSchema.parse(body);
 
@@ -197,7 +199,8 @@ export async function PUT(request: NextRequest, { params }: any) {
  */
 export async function DELETE(request: NextRequest, { params }: any) {
   try {
-    const { id } = UserParamsSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = UserParamsSchema.parse(resolvedParams);
 
     // Check if user exists
     const existingUser = await prisma.user.findUnique({

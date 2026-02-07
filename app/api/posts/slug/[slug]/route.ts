@@ -30,7 +30,8 @@ import { prisma } from "@/lib/prisma";
  */
 export async function GET(request: NextRequest, { params }: any) {
   try {
-    const { slug } = params;
+    const resolvedParams = await params;
+    const { slug } = resolvedParams;
 
     const post = await prisma.post.findUnique({
       where: { slug },

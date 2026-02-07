@@ -31,7 +31,8 @@ import { z } from "zod";
  */
 export async function GET(request: NextRequest, { params }: any) {
   try {
-    const { id } = PostParamsSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = PostParamsSchema.parse(resolvedParams);
 
     // Increment view count
     await prisma.post.update({
@@ -106,7 +107,8 @@ export async function GET(request: NextRequest, { params }: any) {
  */
 export async function PUT(request: NextRequest, { params }: any) {
   try {
-    const { id } = PostParamsSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = PostParamsSchema.parse(resolvedParams);
     const body = await request.json();
     const validatedData = UpdatePostSchema.parse(body);
 
@@ -200,7 +202,8 @@ export async function PUT(request: NextRequest, { params }: any) {
  */
 export async function DELETE(request: NextRequest, { params }: any) {
   try {
-    const { id } = PostParamsSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = PostParamsSchema.parse(resolvedParams);
 
     // Check if post exists
     const existingPost = await prisma.post.findUnique({

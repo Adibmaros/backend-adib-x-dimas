@@ -67,7 +67,8 @@ const UserIdSchema = z.object({
  */
 export async function GET(request: NextRequest, { params }: any) {
   try {
-    const { id } = UserIdSchema.parse(params);
+    const resolvedParams = await params;
+    const { id } = UserIdSchema.parse(resolvedParams);
     const { searchParams } = new URL(request.url);
     const published = searchParams.get("published");
     const sortBy = searchParams.get("sortBy") || "createdAt";
