@@ -87,7 +87,7 @@ export default function Home() {
             </span>
             Server is running
           </div>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Backend Dimas API</h1>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Backend Dimas x Adib API</h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-500">REST API built with Next.js, Prisma ORM &amp; Supabase PostgreSQL. Explore the full interactive documentation below.</p>
           <div className="mt-8 flex items-center justify-center gap-4">
             <Link href="/docs" className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-6 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-slate-800">
