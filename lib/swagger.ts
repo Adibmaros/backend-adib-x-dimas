@@ -14,7 +14,7 @@ const options = {
     },
     servers: [
       {
-        url: process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000",
+        url: process.env.NEXT_PUBLIC_API_URL || "https://backend-api-one-mocha.vercel.app/",
         description: "API Server",
       },
     ],
